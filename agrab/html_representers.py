@@ -35,7 +35,7 @@ def html_represent_by_prtofspch(word_definitions):
                 with tag('span'):
                     with tag('strong'):
                         # name of the group is part of speech
-                        text(name)
+                        text(name.lower())
             for index, row in group.iterrows():
                 # going though every definitions for part of speech
                 with tag('div', style='padding-left:20px;padding-right:20px; margin-bottom: 8px'):

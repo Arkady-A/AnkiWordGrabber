@@ -40,6 +40,7 @@ def collect_oxford(word):
         Object that will handle all definitions from the dictionary
         if the word haven't been found returns None
     '''
+    word = word.strip().lower()
     link = 'https://www.lexico.com/en/definition/{}'.format(word)
     source = 'web:dictionary.lexico.com'
     raw_html = load_data(link)
@@ -62,7 +63,6 @@ def collect_oxford(word):
     # collect all possible pronouns
     pronounciations = parser.find_all('span', class_='phoneticspelling')
     # convert them into a list
-    print(pronounciations)
     pronounciations = [pronoun.text for pronoun in pronounciations]
     
     word_definitions = Word(word_from_html, pronounciations)
